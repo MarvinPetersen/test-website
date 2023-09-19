@@ -1,0 +1,32 @@
+FROM node:alpine
+
+# WORKDIR /workspaces
+
+RUN apk update && \
+    apk upgrade && \
+    apk add git
+
+RUN npm update -g npm
+
+# RUN npm install http-server
+# RUN npm install -D tailwindcss
+# RUN npm install gatsby && \
+#     npm install -G gatsby-cli && \
+#     npm install gatsby-source-filesystem && \
+#     npm install gatsby-transformer-remark && \
+#     npm install gatsby-image && \
+#     npm install gatsby-plugin-sharp && \
+#     npm install gatsby-transformer-sharp
+
+# RUN npm install -g gatsby-cli
+
+# RUN npm install gatsby-source-filesystem && \
+#     npm install gatsby-transformer-remark && \
+#     npm install gatsby-plugin-image && \
+#     npm install gatsby-plugin-sharp && \
+#     npm install gatsby-transformer-sharp
+
+# RUN npm install -g npm-reinstall 
+
+
+EXPOSE 8080
