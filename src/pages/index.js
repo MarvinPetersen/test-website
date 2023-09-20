@@ -5,6 +5,8 @@ import Bio from "../components/bio"
 import Layout from "../components/layout"
 import Seo from "../components/seo"
 
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 const BlogIndex = ({ data, location }) => {
   const siteTitle = data.site.siteMetadata?.title || `Title`
   const posts = data.allMarkdownRemark.nodes
@@ -21,51 +23,27 @@ const BlogIndex = ({ data, location }) => {
       </Layout>
     )
   }
+  
+  const blog_entries = posts.map(post => {    
+    const image = getImage(post.frontmatter.thumbnail)
+    const author = post.frontmatter.author
+    const title = post.frontmatter.title
+    const link = post.fields.slug
+    return(
+      <div className=" flex columns-2">
+        <GatsbyImage image={getImage(image)} alt={author} />
+        <Link to={link} itemProp="url">
+          <h3>{title}</h3>
+        </Link>
+      </div>
+    )});
 
   return (
     <Layout location={location} title={siteTitle}>
-      <Bio />
-      <ol style={{ listStyle: `none` }}>
-        {posts.map(post => {
-          const title = post.frontmatter.title || post.fields.slug
-
-          return (
-            <li key={post.fields.slug}>
-              <div className="grid-cols-2">
-                <div className="columns-1">
-                  <span>
-                    some text
-                  </span>
-                </div>
-                <div className="columns-2">
-                  <article
-                    className="post-list-item"
-                    itemScope
-                    itemType="http://schema.org/Article"
-                    >
-                    <header>
-                      <h2>
-                        <Link to={post.fields.slug} itemProp="url">
-                          <span itemProp="headline">{title}</span>
-                        </Link>
-                      </h2>
-                      <small>{post.frontmatter.date}</small>
-                    </header>
-                    <section>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                        />
-                    </section>
-                  </article>
-                </div>
-              </div>
-            </li>
-          )
-        })}
-      </ol>
+      {/* <Bio /> */}
+      <div>
+          {blog_entries}
+      </div>
     </Layout>
   )
 }
@@ -96,6 +74,15 @@ export const pageQuery = graphql`
           date(formatString: "MMMM DD, YYYY")
           title
           description
+          thumbnail {
+            childImageSharp {
+              gatsbyImageData(
+                width: 200
+                placeholder: BLURRED
+                formats: [AUTO, WEBP, AVIF]
+              )
+            }
+          }
         }
       }
     }

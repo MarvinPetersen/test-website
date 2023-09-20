@@ -2,6 +2,7 @@
 title: First self written blog post
 date: "2016-05-01T23:12:03.284Z"
 description: "test some capabilities of automatically adding pages"
+thumbnail: "./title_image.png"
 ---
 
 **Hey, is this blog useful?**
