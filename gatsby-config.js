@@ -12,7 +12,7 @@ module.exports = {
     title: `Gatsby Playground Portfolio`,
     author: {
       name: `Marvin Petersen`,
-      summary: `a person.`,
+      summary: ``,
     },
     description: `A playground testing what Gatsby can do.`,
     siteUrl: `https://marvinpetersen.github.io/test-website/`,
@@ -20,6 +20,7 @@ module.exports = {
     },
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     `gatsby-plugin-image`,
     {
       resolve: `gatsby-source-filesystem`,
