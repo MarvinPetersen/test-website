@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 import { useState } from "react"
 import Sidebar from "../components/sidebar"
 
-const Layout = ({ location, title, children }) => {
+const Layout = ({ location, title, children, index, store, callback}) => {
   const rootPath = `${__PATH_PREFIX__}/`
   const isRootPath = location.pathname === rootPath
   let header
@@ -44,7 +44,7 @@ const Layout = ({ location, title, children }) => {
           <button className="p-4 md:hidden" onClick={toggleSidebar}> Menu </button>
         </div>
         <div className="grid md:grid-cols-[max-content_1fr] gap-2">
-          <Sidebar className="col-span-1" display={display}/>
+          <Sidebar className="col-span-1" display={display} index={index} store={store} callback={callback}/>
           <div className="p-4 col-span-1">
             <main>{children}</main>
           </div>

@@ -8,11 +8,12 @@ import Seo from "../components/seo"
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
+  index, store, callback
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={location} title={siteTitle}>
+    <Layout location={location} title={siteTitle} index={index} store={store} callback={callback}>
       <article
         className="blog-post"
         itemScope
