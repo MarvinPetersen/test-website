@@ -27,16 +27,26 @@ const BlogIndex = ({ data, location }) => {
     const author = post.frontmatter.author
     const title = post.frontmatter.title
     const link = post.fields.slug
+    const excerpt = post.excerpt
     return(
-        <Link className=" flex columns-2" to={link} itemProp="url">
-          <GatsbyImage image={getImage(image)} alt={author} />
-          <h3>{title}</h3>
-        </Link>
+      <div className="rounded border-2 group grid">
+          <GatsbyImage className="row-start-1 col-start-1" imgStyle={{objectFit:"cover"}} image={getImage(image)} alt="" />
+          <div className="p-2 row-start-1 col-start-1 z-20 bg-white bg-opacity-50 md:bg-transparent md:group-hover:bg-white md:group-hover:bg-opacity-50">
+            <Link to={link} itemProp="url">
+              <div className="md:opacity-0 md:group-hover:opacity-100">
+                <h3 className="">{title}</h3>
+                <p className="text-black">{excerpt}</p>
+              </div>
+            </Link>
+          </div>
+        </div>
     )});
+    // <div className="hidden group-hover:block absolute z-10 -top-10 left-0">
+
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div>
+      <div className="grid gap-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
           {blog_entries}
       </div>
     </Layout>
