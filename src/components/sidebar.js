@@ -18,6 +18,11 @@ const Sidebar = (props) => {
           <Link className="m-2 p-2 hover:underline" to="/about" itemProp="url"> About</Link>
         </div>
       </div>
+      {/* <footer className="absolute bottom-0">
+        © {new Date().getFullYear()}, Built with
+        {` `}
+        <a href="https://www.gatsbyjs.com">Gatsby</a>
+      </footer> */}
     </nav>
   )
 }

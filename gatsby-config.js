@@ -8,6 +8,7 @@
  * @type {import('gatsby').GatsbyConfig}
  */
 module.exports = {
+  pathPrefix: `/test-website`,
   siteMetadata: {
     title: `Gatsby Playground Portfolio`,
     author: {
@@ -43,7 +44,7 @@ module.exports = {
           {
             resolve: `gatsby-remark-images`,
             options: {
-              maxWidth: 630,
+              // maxWidth: 630,
             },
           },
           {
@@ -57,7 +58,24 @@ module.exports = {
       },
     },
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
+    // `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          formats: [`auto`, `webp`],
+          placeholder: `dominantColor`,
+          quality: 100,
+          breakpoints: [750, 1080, 1366, 1920],
+          backgroundColor: `transparent`,
+          blurredOptions: {},
+          jpgOptions: {},
+          pngOptions: {},
+          webpOptions: {},
+          avifOptions: {},
+        },
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

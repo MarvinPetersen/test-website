@@ -45,13 +45,8 @@ const Layout = ({ location, title, children }) => {
         </div>
         <div className="grid md:grid-cols-[max-content_1fr] gap-2">
           <Sidebar className="col-span-1" display={display}/>
-          <div className="mx-10 p-4 col-span-1">
+          <div className="p-4 col-span-1">
             <main>{children}</main>
-            <footer>
-              © {new Date().getFullYear()}, Built with
-              {` `}
-              <a href="https://www.gatsbyjs.com">Gatsby</a>
-            </footer>
           </div>
         </div>
       </div>
