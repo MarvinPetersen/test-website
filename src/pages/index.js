@@ -29,11 +29,11 @@ const BlogIndex = ({ data, location }) => {
     const link = post.fields.slug
     const excerpt = post.excerpt
     return(
-      <div className="rounded border-2 group grid">
+      <div className="rounded border-2 group grid hover:shadow-md transition-shadow ease-in">
           <GatsbyImage className="row-start-1 col-start-1" imgStyle={{objectFit:"cover"}} image={getImage(image)} alt="" />
-          <div className="p-2 row-start-1 col-start-1 z-20 bg-white bg-opacity-50 md:bg-transparent md:group-hover:bg-white md:group-hover:bg-opacity-50">
+          <div className="p-2 row-start-1 col-start-1 z-20 transition-all ease-in bg-white bg-opacity-50 md:bg-transparent md:group-hover:bg-white md:group-hover:bg-opacity-50">
             <Link to={link} itemProp="url">
-              <div className="md:opacity-0 md:group-hover:opacity-100">
+              <div className=" transition-all ease-in md:opacity-0 md:group-hover:opacity-100">
                 <h3 className="">{title}</h3>
                 <p className="text-black">{excerpt}</p>
               </div>
