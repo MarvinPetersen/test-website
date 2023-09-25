@@ -46,7 +46,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <div className="grid gap-2 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+      <div className="grid gap-2 grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3">
           {blog_entries}
       </div>
     </Layout>
