@@ -2,18 +2,18 @@ import * as React from "react"
 import { Link, graphql } from "gatsby"
 
 import Bio from "../components/bio"
-import Layout from "../components/layout"
+// import Layout from "../components/layout"
+import PostLayout from "../components/postLayout"
 import Seo from "../components/seo"
 
 const BlogPostTemplate = ({
   data: { previous, next, site, markdownRemark: post },
   location,
-  index, store, callback
 }) => {
   const siteTitle = site.siteMetadata?.title || `Title`
 
   return (
-    <Layout location={location} title={siteTitle} index={index} store={store} callback={callback}>
+    <PostLayout location={location} title={siteTitle}>
       <article
         className="blog-post"
         itemScope
@@ -58,7 +58,7 @@ const BlogPostTemplate = ({
           </li>
         </ul>
       </nav>
-    </Layout>
+    </PostLayout>
   )
 }
 
